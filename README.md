@@ -1,6 +1,6 @@
 # FirmenABC.at Scraper
 
-Extract structured data from [FirmenABC.at](https://FirmenABC.at) — FirmenABC.at — Austria's largest business directory with 800,000+ companies. Includes full Jahresabschluss balance sheet, Firmenbuchnummer, and board members for each company. Incremental mode tracks changes across runs.
+Extract structured data from [FirmenABC.at](https://www.firmenabc.at) — Austria's largest business directory with 800,000+ companies. Get company profiles including address, contact details, VAT ID, Firmenbuchnummer, Jahresabschluss balance sheets, and board members. Incremental mode tracks changes across runs.
 
 **[FirmenABC.at Scraper on Apify →](https://apify.com/blackfalcondata/firmenabc-at-scraper?fpr=1h3gvi)**
 
@@ -34,7 +34,7 @@ Monitor listings, track trends, and analyze market dynamics with structured, ded
 Run daily or hourly in incremental mode to capture only new, updated, or expired listings. Perfect for price-tracking, churn analysis, and alerting pipelines.
 
 **Lead generation**
-Extract employer contact details alongside listings to build outreach lists for recruiters, staffing agencies, or B2B sales teams.
+Extract company contact details — telephone, email, website — to build B2B outreach lists. Filter by region, industry category, or legal form (GmbH, AG, etc.).
 
 **AI / LLM training data**
 Structured JSON per listing is ready for RAG pipelines, embeddings, and agent workflows. Compact mode trims tokens for LLM context windows.
@@ -151,12 +151,11 @@ No. Just sign up for Apify, paste your input, and click Start. No credit card re
 
 ## Related products by Black Falcon Data
 
-- [StepStone Scraper](https://apify.com/blackfalcondata/stepstone-scraper?fpr=1h3gvi) — Job listings from 18 European portals
-- [Indeed Job Scraper](https://apify.com/blackfalcondata/indeed-job-scraper?fpr=1h3gvi) — Indeed job listings with salary data
-- [Glassdoor Job Scraper](https://apify.com/blackfalcondata/glassdoor-job-scraper?fpr=1h3gvi) — Glassdoor listings with company ratings
-- [Arbeitsagentur Scraper](https://apify.com/blackfalcondata/arbeitsagentur-scraper?fpr=1h3gvi) — Germany's official job portal (1M+ listings)
-- [SEEK Scraper](https://apify.com/blackfalcondata/seek-scraper?fpr=1h3gvi) — Australia & NZ's largest job board
-- [Naukri Scraper](https://apify.com/blackfalcondata/naukri-scraper?fpr=1h3gvi) — India's largest job portal
+- [WLW Scraper](https://apify.com/blackfalcondata/wlw-scraper?fpr=1h3gvi) — DACH B2B supplier directory (Germany, Austria, Switzerland)
+- [Willhaben Scraper](https://apify.com/blackfalcondata/willhaben-all-scraper?fpr=1h3gvi) — Austria's largest classifieds marketplace
+- [Immoscout24 Scraper](https://apify.com/blackfalcondata/immoscout24-scraper?fpr=1h3gvi) — Austrian & German real estate listings
+- [StepStone Scraper](https://apify.com/blackfalcondata/stepstone-scraper?fpr=1h3gvi) — European job listings (18 portals)
+- [Kununu Scraper](https://apify.com/blackfalcondata/kununu-scraper?fpr=1h3gvi) — Employer reviews from Austria & Germany
 
 ---
 
@@ -178,4 +177,4 @@ Black Falcon Data builds production-grade web scrapers for job boards and market
 
 ---
 
-*Last updated: 2026 04*
+*Last updated: 2026-04*
