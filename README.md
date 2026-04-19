@@ -8,17 +8,19 @@ Extract structured data from [FirmenABC.at](https://www.firmenabc.at) — Austri
 
 ## Key features
 
+**Keyword + location search** — Search by company name or industry keyword with an optional city, district or state filter. `query: "Bäckerei", location: "Wien"` returns only bakeries in Vienna.
+
+**Full sitemap crawl** — Leave `query` empty to discover all 800,000+ Austrian companies via the sitemap.
+
+**Direct URL mode** — Pass a list of `startUrls` to scrape specific known company profiles.
+
 **Incremental mode** — Only get new or changed listings since your last run. Content hash per listing — no duplicates, no re-processing.
 
-**Change classification** — Track unchanged, expired across runs. Build audit trails of how listings evolve over time.
+**Change classification** — Track unchanged and expired companies across runs. Build audit trails of how listings evolve over time.
 
 **Compact output** — Emit core fields only (AI-agent / MCP-friendly). Keeps response size small for LLM workflows.
 
-**Result cap** — Stop after N listings. Set to 0 for the full catalog.
-
 **Export anywhere** — Download as JSON, CSV, or Excel. Stream via Apify API, webhooks, or integrations with Make, Zapier, Airbyte, Keboola.
-
-**Structured data** — Every listing returns the same schema with consistent field naming. All fields always present — `null` when unavailable, never omitted.
 
 ---
 
@@ -43,9 +45,21 @@ Structured JSON per listing is ready for RAG pipelines, embeddings, and agent wo
 
 ## Quick start
 
+Search for bakeries in Vienna:
+
 ```json
 {
-  "maxResults": 10
+  "query": "Bäckerei",
+  "location": "Wien",
+  "maxResults": 50
+}
+```
+
+Or scrape the full catalog:
+
+```json
+{
+  "maxResults": 0
 }
 ```
 
@@ -55,8 +69,10 @@ Structured JSON per listing is ready for RAG pipelines, embeddings, and agent wo
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `startUrls` | array | — | Optional: provide specific FirmenABC.at company detail URLs to scrape directly (e.g. https://www.firmenabc.at/wien-holding-gmbh_ocT). Leave empty to discover all companies via sitemap. |
-| `maxResults` | integer | `100` | Maximum number of companies to return. 0 = no limit (full sitemap crawl ~800k). Use a small number for testing. |
+| `query` | string | — | Free-text keyword search (e.g. `"Bäckerei"`, `"IT-Dienstleistungen"`). Leave empty for full sitemap crawl. |
+| `location` | string | — | Austrian city, district or state filter (e.g. `"Wien"`, `"Graz"`, `"Niederösterreich"`). Only used when `query` is set. |
+| `startUrls` | array | — | Specific company profile URLs to scrape directly. Leave empty to use `query` or sitemap. |
+| `maxResults` | integer | `100` | Maximum number of companies to return. `0` = no limit. |
 | `compact` | boolean | `false` | Return only core fields (name, url, address, telephone, vatId, rechtsform, changeType). Ideal for AI-agent and MCP workflows to reduce token usage. |
 | `incrementalMode` | boolean | `false` | Only emit companies that are new or have changed since the last run. Requires stateKey. Saves cost on repeated runs. |
 | `stateKey` | string | — | Unique identifier for this tracking session (e.g. "at-all-companies"). Required when incrementalMode is true. |
