@@ -1,8 +1,10 @@
-# FirmenABC.at Scraper
+# FirmenABC.at Scraper (DEPRECATED)
+
+> **⚠ This actor is deprecated.** Use the new **[FirmenABC Scraper](https://apify.com/blackfalcondata/firmenabc-scraper?fpr=1h3gvi)** instead — same data, adds keyword + location search, ~20% cheaper PPE pricing. Landing page: [BlackFalconData-org/firmenabc-scraper](https://github.com/BlackFalconData-org/firmenabc-scraper).
 
 Extract structured data from [FirmenABC.at](https://www.firmenabc.at) — Austria's largest business directory with 800,000+ companies. Get company profiles including address, contact details, VAT ID, Firmenbuchnummer, Jahresabschluss balance sheets, and board members. Incremental mode tracks changes across runs.
 
-**[FirmenABC.at Scraper on Apify →](https://apify.com/blackfalcondata/firmenabc-at-scraper?fpr=1h3gvi)**
+**[FirmenABC.at Scraper on Apify →](https://apify.com/blackfalcondata/firmenabc-at-scraper?fpr=1h3gvi)** (legacy — new users should use [firmenabc-scraper](https://apify.com/blackfalcondata/firmenabc-scraper?fpr=1h3gvi))
 
 ---
 
@@ -10,7 +12,7 @@ Extract structured data from [FirmenABC.at](https://www.firmenabc.at) — Austri
 
 **Keyword + location search** — Search by company name or industry keyword with an optional city, district or state filter. `query: "Bäckerei", location: "Wien"` returns only bakeries in Vienna.
 
-**Full sitemap crawl** — Leave `query` empty to discover all 800,000+ Austrian companies via the sitemap.
+**Full catalog crawl** — Leave `query` empty to automatically discover and scrape all 800,000+ Austrian companies.
 
 **Direct URL mode** — Pass a list of `startUrls` to scrape specific known company profiles.
 
@@ -69,9 +71,9 @@ Or scrape the full catalog:
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `query` | string | — | Free-text keyword search (e.g. `"Bäckerei"`, `"IT-Dienstleistungen"`). Leave empty for full sitemap crawl. |
+| `query` | string | — | Free-text keyword search (e.g. `"Bäckerei"`, `"IT-Dienstleistungen"`). Leave empty for full catalog crawl. |
 | `location` | string | — | Austrian city, district or state filter (e.g. `"Wien"`, `"Graz"`, `"Niederösterreich"`). Only used when `query` is set. |
-| `startUrls` | array | — | Specific company profile URLs to scrape directly. Leave empty to use `query` or sitemap. |
+| `startUrls` | array | — | Specific company profile URLs to scrape directly. Leave empty for automatic discovery. |
 | `maxResults` | integer | `100` | Maximum number of companies to return. `0` = no limit. |
 | `compact` | boolean | `false` | Return only core fields (name, url, address, telephone, vatId, rechtsform, changeType). Ideal for AI-agent and MCP workflows to reduce token usage. |
 | `incrementalMode` | boolean | `false` | Only emit companies that are new or have changed since the last run. Requires stateKey. Saves cost on repeated runs. |
